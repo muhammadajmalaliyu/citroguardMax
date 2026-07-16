@@ -1,0 +1,1127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CITROGUARD MAX — Natural Pest Protection</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --green-darkest: #061a10;
+    --green-dark:    #0d3320;
+    --green-mid:     #0a2818;
+    --green-leaf:    #1a5c36;
+    --orange:        #ffa01e;
+    --orange-pale:   #fff6e6;
+    --pale-green:    #eaf4ee;
+    --white:         #ffffff;
+    --text-muted:    rgba(255,255,255,0.45);
+    --text-body:     rgba(255,255,255,0.72);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--green-darkest);
+    color: var(--white);
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px 6vw;
+    background: rgba(6,26,16,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255,160,30,0.1);
+    transition: background 0.3s;
+  }
+
+  .nav-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 900;
+    letter-spacing: -0.5px;
+    color: var(--white);
+    text-decoration: none;
+  }
+
+  .nav-logo span { color: var(--orange); }
+
+  .nav-links {
+    display: flex;
+    gap: 36px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--text-muted);
+    text-decoration: none;
+    font-size: 13px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    font-weight: 500;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--orange); }
+
+  .nav-cta {
+    background: var(--orange);
+    color: var(--green-darkest) !important;
+    padding: 10px 22px;
+    border-radius: 40px;
+    font-weight: 600 !important;
+    letter-spacing: 0.5px !important;
+    transition: opacity 0.2s !important;
+  }
+
+  .nav-cta:hover { opacity: 0.85 !important; color: var(--green-darkest) !important; }
+
+  /* ── HERO ── */
+  #hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 120px 6vw 80px;
+    position: relative;
+    overflow: hidden;
+    background: radial-gradient(ellipse at 60% 40%, rgba(26,92,54,0.25) 0%, transparent 70%),
+                linear-gradient(160deg, var(--green-dark) 0%, var(--green-darkest) 60%);
+  }
+
+  /* Animated ingredient orbit */
+  .orbit-ring {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    border-radius: 50%;
+    border: 1px solid rgba(255,160,30,0.08);
+    transform: translate(-50%, -50%);
+    animation: orbit-spin linear infinite;
+  }
+
+  .orbit-ring:nth-child(1) { width: 600px; height: 600px; animation-duration: 40s; }
+  .orbit-ring:nth-child(2) { width: 800px; height: 800px; animation-duration: 60s; animation-direction: reverse; border-color: rgba(255,160,30,0.05); }
+  .orbit-ring:nth-child(3) { width: 440px; height: 440px; animation-duration: 28s; border-color: rgba(255,160,30,0.12); }
+
+  @keyframes orbit-spin {
+    from { transform: translate(-50%,-50%) rotate(0deg); }
+    to   { transform: translate(-50%,-50%) rotate(360deg); }
+  }
+
+  .orbit-dot {
+    position: absolute;
+    font-size: 24px;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .hero-eyebrow {
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--orange);
+    font-weight: 600;
+    margin-bottom: 20px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(52px, 8vw, 100px);
+    font-weight: 900;
+    line-height: 0.95;
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 2;
+    margin-bottom: 10px;
+  }
+
+  .hero-title .max {
+    color: var(--orange);
+    font-style: italic;
+    display: block;
+    font-size: 0.55em;
+    letter-spacing: 6px;
+    font-weight: 700;
+    margin-top: 8px;
+  }
+
+  .hero-sub {
+    font-size: 16px;
+    color: var(--text-body);
+    max-width: 480px;
+    margin: 28px auto 0;
+    line-height: 1.75;
+    position: relative;
+    z-index: 2;
+  }
+
+  .hero-badges {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 36px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+  }
+
+  .badge {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid rgba(255,160,30,0.3);
+    background: rgba(255,160,30,0.07);
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    font-weight: 500;
+    padding: 8px 16px;
+    border-radius: 40px;
+    letter-spacing: 0.3px;
+  }
+
+  .badge .dot {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: var(--orange);
+  }
+
+  .hero-cta-wrap {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 44px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .btn-primary {
+    background: var(--orange);
+    color: var(--green-darkest);
+    border: none;
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    text-decoration: none;
+    transition: transform 0.2s, opacity 0.2s;
+    display: inline-block;
+  }
+
+  .btn-primary:hover { transform: translateY(-2px); opacity: 0.9; }
+
+  .btn-ghost {
+    background: transparent;
+    color: var(--white);
+    border: 1px solid rgba(255,255,255,0.2);
+    padding: 16px 36px;
+    border-radius: 50px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    text-decoration: none;
+    transition: border-color 0.2s, color 0.2s;
+    display: inline-block;
+  }
+
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-scroll {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: var(--text-muted);
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    z-index: 2;
+    animation: bob 2s ease-in-out infinite;
+  }
+
+  @keyframes bob {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50%      { transform: translateX(-50%) translateY(6px); }
+  }
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, rgba(255,160,30,0.6), transparent);
+  }
+
+  /* ── PESTS SECTION ── */
+  #pests {
+    background: var(--pale-green);
+    padding: 100px 6vw;
+  }
+
+  .section-eyebrow {
+    font-size: 10px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--green-leaf);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    font-weight: 900;
+    color: var(--green-dark);
+    line-height: 1.1;
+    letter-spacing: -1px;
+    margin-bottom: 20px;
+  }
+
+  .section-title span { color: var(--green-leaf); }
+
+  .section-body {
+    color: #3a5a44;
+    font-size: 16px;
+    line-height: 1.75;
+    max-width: 520px;
+    margin-bottom: 56px;
+  }
+
+  .pests-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  .pest-card {
+    background: var(--white);
+    border-radius: 20px;
+    padding: 40px 32px;
+    border: 1px solid rgba(13,51,32,0.08);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s, box-shadow 0.25s;
+  }
+
+  .pest-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 40px rgba(13,51,32,0.12);
+  }
+
+  .pest-card::before {
+    content: '';
+    position: absolute;
+    bottom: -30px; right: -30px;
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    background: var(--orange-pale);
+    pointer-events: none;
+  }
+
+  .pest-icon { font-size: 44px; margin-bottom: 20px; display: block; }
+
+  .pest-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--green-dark);
+    margin-bottom: 10px;
+  }
+
+  .pest-desc {
+    font-size: 14px;
+    color: #5a7a64;
+    line-height: 1.7;
+  }
+
+  .pest-how {
+    margin-top: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--green-leaf);
+  }
+
+  /* ── INGREDIENTS ── */
+  #ingredients {
+    background: var(--green-dark);
+    padding: 100px 6vw;
+  }
+
+  .ingredients-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .ing-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .ing-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    padding: 22px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    transition: padding-left 0.2s;
+  }
+
+  .ing-item:hover { padding-left: 8px; }
+  .ing-item:last-child { border-bottom: none; }
+
+  .ing-emoji {
+    font-size: 28px;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+
+  .ing-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--white);
+    margin-bottom: 4px;
+  }
+
+  .ing-role {
+    font-size: 13px;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  .ing-role strong { color: var(--orange); font-weight: 600; }
+
+  /* Citrus visual */
+  .citrus-visual {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+  }
+
+  .citrus-center {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 35% 35%, #ffcc66, var(--orange) 60%, #cc7700);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 72px;
+    box-shadow: 0 0 60px rgba(255,160,30,0.3), 0 0 120px rgba(255,160,30,0.1);
+    position: relative;
+    z-index: 2;
+    animation: glow-pulse 3s ease-in-out infinite;
+  }
+
+  @keyframes glow-pulse {
+    0%,100% { box-shadow: 0 0 60px rgba(255,160,30,0.3), 0 0 120px rgba(255,160,30,0.1); }
+    50%      { box-shadow: 0 0 80px rgba(255,160,30,0.5), 0 0 160px rgba(255,160,30,0.15); }
+  }
+
+  .sat-icon {
+    position: absolute;
+    font-size: 30px;
+    animation: orbit-icon linear infinite;
+  }
+
+  @keyframes orbit-icon {
+    from { transform: rotate(var(--start)) translateX(130px) rotate(calc(-1 * var(--start))); }
+    to   { transform: rotate(calc(var(--start) + 360deg)) translateX(130px) rotate(calc(-1 * (var(--start) + 360deg))); }
+  }
+
+  /* ── HOW IT WORKS ── */
+  #how {
+    background: var(--orange-pale);
+    padding: 100px 6vw;
+  }
+
+  #how .section-eyebrow { color: #8a5a00; }
+  #how .section-title { color: var(--green-dark); }
+  #how .section-title span { color: var(--orange); }
+
+  .steps-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 28px;
+    margin-top: 60px;
+    position: relative;
+  }
+
+  .steps-grid::before {
+    content: '';
+    position: absolute;
+    top: 36px;
+    left: calc(12.5% + 20px);
+    right: calc(12.5% + 20px);
+    height: 1px;
+    background: linear-gradient(to right, rgba(255,160,30,0.3), rgba(255,160,30,0.6), rgba(255,160,30,0.3));
+    pointer-events: none;
+  }
+
+  .step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .step-num {
+    width: 72px; height: 72px;
+    border-radius: 50%;
+    background: var(--green-dark);
+    color: var(--orange);
+    font-family: 'Playfair Display', serif;
+    font-size: 26px;
+    font-weight: 900;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid rgba(255,160,30,0.3);
+    position: relative;
+    z-index: 2;
+  }
+
+  .step-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--green-dark);
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: #5a7a64;
+    line-height: 1.7;
+  }
+
+  /* ── PRODUCT CARD ── */
+  #product {
+    background: var(--green-darkest);
+    padding: 100px 6vw;
+  }
+
+  .product-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+
+  .product-bottle {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+
+  .bottle-wrap {
+    width: 200px;
+    position: relative;
+  }
+
+  .bottle-body {
+    width: 200px;
+    background: linear-gradient(160deg, var(--green-dark) 0%, var(--green-darkest) 100%);
+    border-radius: 24px 24px 36px 36px;
+    padding: 32px 24px 40px;
+    border: 1px solid rgba(255,160,30,0.25);
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 1px 0 rgba(255,255,255,0.06);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottle-body::before {
+    content: '';
+    position: absolute;
+    top: -40px; right: -40px;
+    width: 140px; height: 140px;
+    border-radius: 50%;
+    border: 20px solid rgba(255,160,30,0.05);
+    pointer-events: none;
+  }
+
+  .bottle-spray {
+    width: 60px;
+    height: 28px;
+    background: var(--green-leaf);
+    border-radius: 8px 8px 0 0;
+    margin-bottom: -4px;
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .bottle-spray::after {
+    content: '';
+    position: absolute;
+    top: 6px; right: -20px;
+    width: 24px; height: 4px;
+    background: var(--green-leaf);
+    border-radius: 0 4px 4px 0;
+  }
+
+  .bottle-label-badge {
+    font-size: 9px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--orange);
+    text-transform: uppercase;
+    border: 1px solid rgba(255,160,30,0.35);
+    padding: 3px 10px;
+    border-radius: 20px;
+    background: rgba(255,160,30,0.08);
+  }
+
+  .bottle-icon { font-size: 52px; }
+
+  .bottle-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 30px;
+    font-weight: 900;
+    color: var(--white);
+    text-align: center;
+    line-height: 1;
+  }
+
+  .bottle-brand span { color: var(--orange); }
+
+  .bottle-max {
+    font-size: 11px;
+    letter-spacing: 5px;
+    color: rgba(255,160,30,0.6);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  .bottle-desc {
+    font-size: 10px;
+    color: rgba(255,255,255,0.3);
+    text-align: center;
+    line-height: 1.6;
+  }
+
+  .bottle-glow {
+    width: 160px;
+    height: 30px;
+    background: radial-gradient(ellipse, rgba(255,160,30,0.2) 0%, transparent 70%);
+    margin-top: -10px;
+    pointer-events: none;
+  }
+
+  .product-info .section-eyebrow { color: var(--orange); }
+  .product-info .section-title { color: var(--white); }
+  .product-info .section-body { color: var(--text-body); }
+
+  .price-row {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin: 32px 0 20px;
+  }
+
+  .price-main {
+    font-family: 'Playfair Display', serif;
+    font-size: 52px;
+    font-weight: 900;
+    color: var(--orange);
+    line-height: 1;
+  }
+
+  .price-label {
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .price-tiers {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-bottom: 36px;
+  }
+
+  .tier {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 18px;
+    background: rgba(255,255,255,0.04);
+    border-radius: 10px;
+    border: 1px solid rgba(255,255,255,0.06);
+    font-size: 13px;
+    color: var(--text-body);
+  }
+
+  .tier strong { color: var(--orange); font-weight: 600; }
+
+  /* ── TESTIMONIALS / SOCIAL PROOF ── */
+  #proof {
+    background: var(--green-mid);
+    padding: 80px 6vw;
+    text-align: center;
+  }
+
+  .proof-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-top: 48px;
+  }
+
+  .review-card {
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 28px 24px;
+    text-align: left;
+  }
+
+  .stars { font-size: 16px; margin-bottom: 14px; }
+
+  .review-text {
+    font-size: 14px;
+    color: var(--text-body);
+    line-height: 1.75;
+    font-style: italic;
+    margin-bottom: 18px;
+  }
+
+  .reviewer {
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--orange);
+    letter-spacing: 0.5px;
+  }
+
+  .reviewer span {
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--green-darkest);
+    padding: 100px 6vw;
+    text-align: center;
+    border-top: 1px solid rgba(255,160,30,0.1);
+  }
+
+  #contact .section-eyebrow { color: var(--orange); }
+  #contact .section-title { color: var(--white); margin-bottom: 16px; }
+
+  .contact-sub {
+    color: var(--text-muted);
+    font-size: 15px;
+    max-width: 420px;
+    margin: 0 auto 48px;
+    line-height: 1.7;
+  }
+
+  .contact-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    max-width: 700px;
+    margin: 0 auto 48px;
+  }
+
+  .contact-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,160,30,0.15);
+    border-radius: 16px;
+    padding: 28px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .contact-icon { font-size: 28px; }
+
+  .contact-label {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+    font-weight: 600;
+  }
+
+  .contact-value {
+    font-size: 13px;
+    color: var(--white);
+    font-weight: 500;
+  }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--green-dark);
+    padding: 32px 6vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-top: 1px solid rgba(255,255,255,0.05);
+  }
+
+  .footer-brand {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--white);
+  }
+
+  .footer-brand span { color: var(--orange); }
+
+  .footer-note {
+    font-size: 12px;
+    color: var(--text-muted);
+  }
+
+  .footer-tagline {
+    font-size: 11px;
+    color: rgba(255,160,30,0.45);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+  }
+
+  /* ── RESPONSIVE ── */
+  @media (max-width: 900px) {
+    .pests-grid, .steps-grid, .proof-grid, .contact-grid {
+      grid-template-columns: 1fr;
+    }
+    .ingredients-layout, .product-layout {
+      grid-template-columns: 1fr;
+      gap: 48px;
+    }
+    .steps-grid::before { display: none; }
+    .nav-links { display: none; }
+    .citrus-visual { display: none; }
+    footer { flex-direction: column; gap: 12px; text-align: center; }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    .orbit-ring, .sat-icon, .hero-scroll, .citrus-center { animation: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">CITRO<span>GUARD</span></a>
+  <ul class="nav-links">
+    <li><a href="#pests">What It Fights</a></li>
+    <li><a href="#ingredients">Ingredients</a></li>
+    <li><a href="#how">How It Works</a></li>
+    <li><a href="#product">Buy Now</a></li>
+    <li><a href="#contact" class="nav-cta">Order Today</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="orbit-ring"><div class="orbit-dot">🍋</div></div>
+  <div class="orbit-ring"><div class="orbit-dot">🌿</div></div>
+  <div class="orbit-ring"><div class="orbit-dot">🍊</div></div>
+
+  <p class="hero-eyebrow">Made in Ota, Nigeria · 100% Natural</p>
+
+  <h1 class="hero-title">
+    CITROGUARD
+    <span class="max">MAX</span>
+  </h1>
+
+  <p class="hero-sub">
+    One spray. Three pests gone. Our all-natural citrus and herb formula drives out mosquitoes, roaches, and spiders — without a single harsh chemical.
+  </p>
+
+  <div class="hero-badges">
+    <div class="badge"><div class="dot"></div>Mosquitoes</div>
+    <div class="badge"><div class="dot"></div>Cockroaches</div>
+    <div class="badge"><div class="dot"></div>Spiders</div>
+    <div class="badge"><div class="dot"></div>Child-Safe Formula</div>
+    <div class="badge"><div class="dot"></div>No Chemical Smell</div>
+  </div>
+
+  <div class="hero-cta-wrap">
+    <a href="#product" class="btn-primary">Order a Bottle →</a>
+    <a href="#ingredients" class="btn-ghost">See What's Inside</a>
+  </div>
+
+  <div class="hero-scroll">
+    <div class="scroll-line"></div>
+    Scroll
+  </div>
+</section>
+
+<!-- PESTS -->
+<section id="pests">
+  <p class="section-eyebrow">Triple-Action Protection</p>
+  <h2 class="section-title">One formula.<br><span>Three pests handled.</span></h2>
+  <p class="section-body">Most pest sprays target one insect. CITROGUARD MAX is built differently — a single 500ml bottle deals with the three most common household pests in Nigerian homes.</p>
+
+  <div class="pests-grid">
+    <div class="pest-card">
+      <span class="pest-icon">🦟</span>
+      <div class="pest-name">Mosquitoes</div>
+      <p class="pest-desc">The limonene in orange peel disrupts the mosquito's nervous system. Combined with camphor and clove oil, your room becomes a no-fly zone from dusk.</p>
+      <p class="pest-how">→ Spray room-wide at 6 PM daily</p>
+    </div>
+    <div class="pest-card">
+      <span class="pest-icon">🪳</span>
+      <div class="pest-name">Cockroaches</div>
+      <p class="pest-desc">Peppermint oil overwhelms roaches' sensitive olfactory system. Garlic concentrate adds a second repellent layer. Spray behind appliances and cabinets each night.</p>
+      <p class="pest-how">→ Apply nightly in kitchen & bathroom</p>
+    </div>
+    <div class="pest-card">
+      <span class="pest-icon">🕷️</span>
+      <div class="pest-name">Spiders</div>
+      <p class="pest-desc">Spiders detest the concentrated citrus and peppermint oils in every bottle. One application on webs, corners, and frames keeps them from returning.</p>
+      <p class="pest-how">→ Spray directly on webs & corners</p>
+    </div>
+  </div>
+</section>
+
+<!-- INGREDIENTS -->
+<section id="ingredients">
+  <div class="ingredients-layout">
+    <div>
+      <p class="section-eyebrow" style="color:rgba(255,160,30,0.7);">What's Inside</p>
+      <h2 class="section-title" style="color:var(--white);">Every ingredient<br><span style="color:var(--orange);">has a job to do.</span></h2>
+      <p class="section-body" style="color:var(--text-body); margin-bottom: 36px;">No fillers. No hidden chemicals. Seven natural ingredients — each chosen because science confirms it repels pests.</p>
+
+      <div class="ing-list">
+        <div class="ing-item">
+          <span class="ing-emoji">🍊</span>
+          <div class="ing-info">
+            <div class="ing-name">Orange Peel Extract</div>
+            <div class="ing-role">Contains <strong>limonene</strong> — disrupts mosquito & roach nervous systems on contact</div>
+          </div>
+        </div>
+        <div class="ing-item">
+          <span class="ing-emoji">🍋</span>
+          <div class="ing-info">
+            <div class="ing-name">Fresh Lemon Juice</div>
+            <div class="ing-role">Citric acid <strong>masks human scent</strong> that attracts mosquitoes</div>
+          </div>
+        </div>
+        <div class="ing-item">
+          <span class="ing-emoji">🌱</span>
+          <div class="ing-info">
+            <div class="ing-name">Peppermint Oil</div>
+            <div class="ing-role"><strong>NEW in MAX</strong> — overwhelms roach & spider senses; the key anti-roach ingredient</div>
+          </div>
+        </div>
+        <div class="ing-item">
+          <span class="ing-emoji">🧄</span>
+          <div class="ing-info">
+            <div class="ing-name">Garlic Concentrate</div>
+            <div class="ing-role">Allicin in garlic is <strong>toxic to mosquitoes</strong> and repellent to roaches</div>
+          </div>
+        </div>
+        <div class="ing-item">
+          <span class="ing-emoji">🌾</span>
+          <div class="ing-info">
+            <div class="ing-name">Clove & Camphor</div>
+            <div class="ing-role">Eugenol from cloves is a <strong>proven natural insecticide</strong>; camphor clears enclosed spaces fast</div>
+          </div>
+        </div>
+        <div class="ing-item">
+          <span class="ing-emoji">🫙</span>
+          <div class="ing-info">
+            <div class="ing-name">White Vinegar</div>
+            <div class="ing-role">Natural <strong>preservative</strong> that extends shelf life and adds repellent acidity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="citrus-visual">
+      <div style="position:relative; width:300px; height:300px; display:flex; align-items:center; justify-content:center;">
+        <div class="citrus-center">🍊</div>
+        <div class="sat-icon" style="--start:0deg;">🍋</div>
+        <div class="sat-icon" style="--start:60deg; animation-duration:22s;">🌱</div>
+        <div class="sat-icon" style="--start:120deg; animation-duration:18s;">🧄</div>
+        <div class="sat-icon" style="--start:180deg; animation-duration:26s;">🌾</div>
+        <div class="sat-icon" style="--start:240deg; animation-duration:20s;">🫙</div>
+        <div class="sat-icon" style="--start:300deg; animation-duration:24s;">💧</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <p class="section-eyebrow">Process</p>
+  <h2 class="section-title">Handcrafted fresh.<br><span>Delivered to your door.</span></h2>
+
+  <div class="steps-grid">
+    <div class="step">
+      <div class="step-num">1</div>
+      <div class="step-title">Source</div>
+      <p class="step-desc">Fresh oranges, lemons, garlic, and cloves are sourced locally from Ota market each production day.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">2</div>
+      <div class="step-title">Infuse</div>
+      <p class="step-desc">Peels and herbs are slow-simmered for 20 minutes to extract the maximum repellent compounds.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">3</div>
+      <div class="step-title">Blend</div>
+      <p class="step-desc">Lemon juice, peppermint oil, camphor, and vinegar are added cold to preserve potency.</p>
+    </div>
+    <div class="step">
+      <div class="step-num">4</div>
+      <div class="step-title">Bottle & Deliver</div>
+      <p class="step-desc">Filled fresh into 500ml spray bottles and delivered to your address same day.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section id="product">
+  <div class="product-layout">
+    <div class="product-bottle">
+      <div class="bottle-wrap">
+        <div style="display:flex;justify-content:center;margin-bottom:-2px;">
+          <div class="bottle-spray"></div>
+        </div>
+        <div class="bottle-body">
+          <div class="bottle-label-badge">3-in-1 Natural</div>
+          <div class="bottle-icon">🍊</div>
+          <div class="bottle-brand">CITRO<span>GUARD</span></div>
+          <div class="bottle-max">MAX</div>
+          <div class="bottle-desc">Natural Pest Room Spray<br>Mosquito · Roach · Spider<br>500 ml</div>
+        </div>
+      </div>
+      <div class="bottle-glow"></div>
+    </div>
+
+    <div class="product-info">
+      <p class="section-eyebrow" style="color:var(--orange);">Order Now</p>
+      <h2 class="section-title" style="color:var(--white);">Fresh-made.<br>Delivered same day.</h2>
+      <p class="section-body" style="color:var(--text-body);">Every bottle is made to order — never sitting on a shelf. That means maximum potency, maximum freshness, and a scent your home will actually enjoy.</p>
+
+      <div class="price-row">
+        <div class="price-main">₦1,200</div>
+        <div class="price-label">per 500ml bottle</div>
+      </div>
+
+      <div class="price-tiers">
+        <div class="tier">
+          <span>1 bottle (trial)</span>
+          <strong>₦1,200</strong>
+        </div>
+        <div class="tier">
+          <span>3 bottles (household pack)</span>
+          <strong>₦3,300 <span style="font-size:11px;color:var(--text-muted);">save ₦300</span></strong>
+        </div>
+        <div class="tier">
+          <span>6 bottles (neighbour deal)</span>
+          <strong>₦6,000 <span style="font-size:11px;color:var(--text-muted);">save ₦1,200</span></strong>
+        </div>
+      </div>
+
+      <a href="https://wa.me/2347038246059" class="btn-primary" style="width:100%; text-align:center; display:block;">
+        Order via WhatsApp →
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIAL PROOF -->
+<section id="proof">
+  <p class="section-eyebrow" style="color:rgba(255,160,30,0.6);">What Customers Say</p>
+  <h2 class="section-title" style="font-size:clamp(28px,3vw,44px);">Neighbors are talking.</h2>
+
+  <div class="proof-grid">
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"I sprayed this in my kitchen on Friday night and by Saturday morning I had not seen a single roach. The orange smell is actually pleasant — my kids don't cough like they do with the chemical sprays."</p>
+      <div class="reviewer">Mama Tunde <span>— Sango, Ogun State</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"We were using Raid every week and it was not solving anything. A neighbor gave me CITROGUARD MAX to try. It has been three weeks and the mosquitoes in our bedroom have reduced massively. I have ordered 3 bottles."</p>
+      <div class="reviewer">Alhaji Musa <span>— Ota, Ogun State</span></div>
+    </div>
+    <div class="review-card">
+      <div class="stars">⭐⭐⭐⭐⭐</div>
+      <p class="review-text">"My daughter is asthmatic so chemical sprays are out of the question. This is the only thing we can use safely. The spiders in the corners have disappeared. I am recommending to everyone in my compound."</p>
+      <div class="reviewer">Mrs. Adeyemi <span>— Ijoko, Ogun State</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <p class="section-eyebrow">Get in Touch</p>
+  <h2 class="section-title">Order today.<br>Delivered to your door.</h2>
+  <p class="contact-sub">We're based in Ota, Ogun State. Order via WhatsApp and we'll deliver same day within Ota, or arrange pickup at your gate.</p>
+
+  <div class="contact-grid">
+    <div class="contact-card">
+      <div class="contact-icon">📱</div>
+      <div class="contact-label">WhatsApp</div>
+      <div class="contact-value">+234 703 824 6059</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">📍</div>
+      <div class="contact-label">Location</div>
+      <div class="contact-value">Ota, Ogun State, Nigeria</div>
+    </div>
+    <div class="contact-card">
+      <div class="contact-icon">⏰</div>
+      <div class="contact-label">Hours</div>
+      <div class="contact-value">Mon–Sat · 8 AM – 7 PM</div>
+    </div>
+  </div>
+
+  <a href="https://wa.me/2347038246059" class="btn-primary" style="font-size:15px; padding:18px 48px;">
+    📲 Message Us on WhatsApp
+  </a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-brand">CITRO<span>GUARD</span> <span style="color:rgba(255,160,30,0.5);font-size:14px;">MAX</span></div>
+  <div class="footer-note">Produced by AudioArtsAfrica · Ota, Nigeria · © 2026</div>
+  <div class="footer-tagline">Natural. Local. Effective.</div>
+</footer>
+
+</body>
+</html>
